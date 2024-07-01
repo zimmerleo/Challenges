@@ -1,7 +1,6 @@
 package de.seniorenheim.challenges.Utils.Managers;
 
-import de.seniorenheim.challenges.Challenges.BlockSwapChallenge;
-import de.seniorenheim.challenges.Challenges.Challenge;
+import de.seniorenheim.challenges.Challenges.*;
 import de.seniorenheim.challenges.Utils.Interfaces.ChallengeManagerInterface;
 import de.seniorenheim.challenges.Utils.Timers.CountupTimer;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -84,7 +83,12 @@ public class ChallengeManager implements ChallengeManagerInterface {
     }
 
     public void setup() {
-        create(new BlockSwapChallenge(new ArrayList<>(), new CountupTimer()));
+        create(new BlockSwapChallenge(null, null));
+        create(new DebuffChallenge(null, null));
+        create(new EndermanChallenge(null, null));
+        create(new InverseDamageChallenge(null, null));
+        create(new SharedDamageChallenge(null, null));
+        create(new NoCraftingTableChallenge(null, null));
     }
 
     public ArrayList<ArrayList<Challenge>> getChallengeLists() {

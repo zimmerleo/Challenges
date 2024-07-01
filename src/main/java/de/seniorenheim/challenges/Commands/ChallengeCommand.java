@@ -12,8 +12,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.io.IOException;
-import java.util.List;
 
 public class ChallengeCommand implements CommandExecutor {
 
@@ -25,8 +23,6 @@ public class ChallengeCommand implements CommandExecutor {
             Player p = (Player) cs;
 
             p.openInventory(new ChallengeChoosingInventory(cm.getChallengeLists().get(0)).getInventory());
-
-            new CountdownTimer(1, 1, 1, 10).start(List.of(Bukkit.getPlayer("xX_HEHEBOI_Xx")));
 
         }
 
