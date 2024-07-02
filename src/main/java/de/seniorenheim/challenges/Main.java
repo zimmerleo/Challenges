@@ -1,9 +1,7 @@
 package de.seniorenheim.challenges;
 
-import de.seniorenheim.challenges.Commands.ChallengeCommand;
+import de.seniorenheim.challenges.Commands.*;
 import de.seniorenheim.challenges.Utils.Managers.ChallengeManager;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -26,11 +24,16 @@ public final class Main extends JavaPlugin {
 
     private void loadCommands() {
         getCommand("challenge").setExecutor(new ChallengeCommand());
+        getCommand("join").setExecutor(new JoinCommand());
+        getCommand("start").setExecutor(new StartCommand());
+        getCommand("pause").setExecutor(new PauseCommand());
+        getCommand("resume").setExecutor(new ResumeCommand());
+        getCommand("reset").setExecutor(new ResetCommand());
+        getCommand("stop").setExecutor(new StopCommand());
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
     }
 
     public Plugin getPlugin() {

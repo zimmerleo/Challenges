@@ -6,3 +6,21 @@ commands:
   challenge:
     aliases:
       - ch
+  join:
+    aliases:
+      - chjoin
+  start:
+    aliases:
+      - chstart
+  pause:
+    aliases:
+      - chpause
+  resume:
+    aliases:
+      - chresume
+  reset:
+    aliases:
+      - chreset
+  stop:
+    aliases:
+      - chstop

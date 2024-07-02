@@ -12,14 +12,19 @@ import java.util.List;
 
 public class Challenge implements ChallengeInterface {
 
-    private final Timer timer;
+
     private final String challengeName;
     private final List<String> challengeDescription;
     private final Material material;
     private final Difficulty difficulty;
+    private List<Player> participants;
+    private final Timer timer;
+
     private int timesCompleted;
     private int timesTried;
-    private List<Player> participants;
+
+    private boolean started = false;
+    private boolean paused = false;
 
     public Challenge(String challengeName, List<String> challengeDescription, Material material, Difficulty difficulty, List<Player> participants, Timer timer) {
         this.timer = timer;
@@ -38,26 +43,36 @@ public class Challenge implements ChallengeInterface {
 
     @Override
     public boolean start() {
+        this.started = true;
+        this.paused = false;
         return timer.start(participants);
     }
 
     @Override
     public boolean pause() {
+        this.started = true;
+        this.paused = true;
         return timer.pause(participants);
     }
 
     @Override
     public boolean resume() {
+        this.started = true;
+        this.paused = false;
         return timer.resume(participants);
     }
 
     @Override
     public boolean reset() {
+        this.started = false;
+        this.paused = true;
         return timer.reset(participants);
     }
 
     @Override
     public boolean stop() {
+        this.started = false;
+        this.paused = false;
         Bukkit.getScheduler().cancelTask(timer.getTaskID());
         Bukkit.getScheduler().cancelTask(timer.getDisplayTaskID());
         participants.clear();
@@ -94,5 +109,13 @@ public class Challenge implements ChallengeInterface {
 
     public List<Player> getParticipants() {
         return participants;
+    }
+
+    public boolean isStarted() {
+        return started;
+    }
+
+    public boolean isPaused() {
+        return paused;
     }
 }
