@@ -1,7 +1,6 @@
 package de.seniorenheim.challenges.Utils.Inventories;
 
 import org.bukkit.Material;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 

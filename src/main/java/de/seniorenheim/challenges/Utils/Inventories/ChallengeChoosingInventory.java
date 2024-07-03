@@ -14,15 +14,15 @@ public class ChallengeChoosingInventory extends CustomInventory {
 
     private Inventory inventory;
 
-    public ChallengeChoosingInventory(ArrayList<Challenge> challenges) {
+    public ChallengeChoosingInventory(ArrayList<ArrayList<Challenge>> challengeLists, int index) {
         super();
 
-        inventory = Bukkit.createInventory(null, 54, "§6Challenges");
+        inventory = Bukkit.createInventory(null, 54, "§6Challenges | " + index);
 
         inventory.setItem(45, super.getPrevious());
         inventory.setItem(53, super.getNext());
 
-        for (Challenge c : challenges) {
+        for (Challenge c : challengeLists.get(index-1)) {
             ItemStack item = new ItemStack(c.getMaterial());
             ItemMeta itemMeta = item.getItemMeta();
             itemMeta.setDisplayName("§r§8┌ §6§l" + c.getChallengeName());
@@ -33,8 +33,8 @@ public class ChallengeChoosingInventory extends CustomInventory {
             lore.add("§8├─────────────────────");
             lore.add("§8│ §9Schwierigkeitsstufe§7: "
                     + DifficultyConverter.convertToColorCode(c.getDifficulty())
-                    + "● ".repeat(DifficultyConverter.convertToInt(c.getDifficulty()))
-                    + "§7● ".repeat(5 - DifficultyConverter.convertToInt(c.getDifficulty())));
+                    + "█ ".repeat(DifficultyConverter.convertToInt(c.getDifficulty()))
+                    + "§7█ ".repeat(5 - DifficultyConverter.convertToInt(c.getDifficulty())));
             lore.add("§8│ §9Versuche§7: §9" + c.getTimesTried());
             lore.add("§8│ §9Abschlüsse§7: §9" + c.getTimesCompleted());
             DecimalFormat df = new DecimalFormat("0.00");

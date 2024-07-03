@@ -2,7 +2,6 @@ package de.seniorenheim.challenges.Utils.Managers;
 
 import de.seniorenheim.challenges.Challenges.*;
 import de.seniorenheim.challenges.Utils.Interfaces.ChallengeManagerInterface;
-import de.seniorenheim.challenges.Utils.Timers.CountupTimer;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;

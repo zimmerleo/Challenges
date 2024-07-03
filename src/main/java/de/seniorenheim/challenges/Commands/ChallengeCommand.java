@@ -19,7 +19,7 @@ public class ChallengeCommand implements CommandExecutor {
             Player p = (Player) cs;
 
             if (args.length == 0) {
-                p.openInventory(new ChallengeChoosingInventory(cm.getChallengeLists().get(0)).getInventory());
+                p.openInventory(new ChallengeChoosingInventory(cm.getChallengeLists(), 1).getInventory());
             } else {
                 p.sendMessage("§cFalsche Syntax! Nutze /challenge");
             }

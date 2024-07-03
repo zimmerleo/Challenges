@@ -9,17 +9,15 @@ public final class Main extends JavaPlugin {
 
     private Plugin plugin;
     private Main instance;
-    private ChallengeManager challengeManager;
+    private final ChallengeManager challengeManager = new ChallengeManager();
 
     @Override
     public void onEnable() {
         plugin = this;
         instance = this;
-        challengeManager = new ChallengeManager();
         challengeManager.setup();
 
         loadCommands();
-
     }
 
     private void loadCommands() {
