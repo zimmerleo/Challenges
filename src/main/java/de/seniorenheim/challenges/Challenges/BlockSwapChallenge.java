@@ -1,7 +1,7 @@
 package de.seniorenheim.challenges.Challenges;
 
 import de.seniorenheim.challenges.Main;
-import de.seniorenheim.challenges.Utils.Difficulty;
+import de.seniorenheim.challenges.Utils.Difficulty.Difficulty;
 import de.seniorenheim.challenges.Utils.Timers.Timer;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;

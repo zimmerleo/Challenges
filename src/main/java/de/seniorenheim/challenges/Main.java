@@ -1,8 +1,14 @@
 package de.seniorenheim.challenges;
 
 import de.seniorenheim.challenges.Commands.*;
+import de.seniorenheim.challenges.Listeners.ChallengeInvListener;
+import de.seniorenheim.challenges.Listeners.InverseDamageListener;
+import de.seniorenheim.challenges.Listeners.NoCraftingTableListener;
+import de.seniorenheim.challenges.Listeners.SharedDamageListener;
 import de.seniorenheim.challenges.Utils.Managers.ChallengeManager;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin {
@@ -17,6 +23,7 @@ public final class Main extends JavaPlugin {
         instance = this;
         challengeManager.setup();
 
+        loadEvents(Bukkit.getPluginManager());
         loadCommands();
     }
 
@@ -28,6 +35,13 @@ public final class Main extends JavaPlugin {
         getCommand("resume").setExecutor(new ResumeCommand());
         getCommand("reset").setExecutor(new ResetCommand());
         getCommand("stop").setExecutor(new StopCommand());
+    }
+
+    private void loadEvents(PluginManager pm) {
+        pm.registerEvents(new ChallengeInvListener(), this);
+        pm.registerEvents(new InverseDamageListener(), this);
+        pm.registerEvents(new SharedDamageListener(), this);
+        pm.registerEvents(new NoCraftingTableListener(), this);
     }
 
     @Override

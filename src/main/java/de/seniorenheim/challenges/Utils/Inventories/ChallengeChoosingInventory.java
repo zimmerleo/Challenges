@@ -1,7 +1,7 @@
 package de.seniorenheim.challenges.Utils.Inventories;
 
 import de.seniorenheim.challenges.Challenges.Challenge;
-import de.seniorenheim.challenges.Utils.DifficultyConverter;
+import de.seniorenheim.challenges.Utils.Difficulty.DifficultyConverter;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;

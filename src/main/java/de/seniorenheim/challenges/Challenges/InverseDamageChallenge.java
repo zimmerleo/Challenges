@@ -1,13 +1,16 @@
 package de.seniorenheim.challenges.Challenges;
 
-import de.seniorenheim.challenges.Utils.Difficulty;
+import de.seniorenheim.challenges.Utils.Difficulty.Difficulty;
 import de.seniorenheim.challenges.Utils.Timers.Timer;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
 
 import java.util.List;
 
-public class InverseDamageChallenge extends Challenge {
+public class InverseDamageChallenge extends Challenge implements Listener {
+
+    private boolean eventCaused;
 
     public InverseDamageChallenge(List<Player> participants, Timer timer) {
         super("InverseDamageChallenge",

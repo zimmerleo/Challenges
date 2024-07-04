@@ -1,6 +1,6 @@
 package de.seniorenheim.challenges.Challenges;
 
-import de.seniorenheim.challenges.Utils.Difficulty;
+import de.seniorenheim.challenges.Utils.Difficulty.Difficulty;
 import de.seniorenheim.challenges.Utils.Timers.Timer;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

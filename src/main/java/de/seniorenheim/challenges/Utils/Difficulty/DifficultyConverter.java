@@ -1,4 +1,4 @@
-package de.seniorenheim.challenges.Utils;
+package de.seniorenheim.challenges.Utils.Difficulty;
 
 public class DifficultyConverter {
 
