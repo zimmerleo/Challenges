@@ -1,4 +1,4 @@
-name: Challenges
+name: Minigames
 version: '${project.version}'
 main: de.seniorenheim.challenges.Main
 api-version: '1.20'
