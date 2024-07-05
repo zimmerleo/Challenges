@@ -33,7 +33,7 @@ public class JoinCommand implements CommandExecutor {
                     }
 
                 } else {
-                    p.sendMessage("§cDiesen Spieler gibt es nicht!");
+                    p.sendMessage("§cDiesem Spieler kannst du nicht beitreten!");
                 }
 
 

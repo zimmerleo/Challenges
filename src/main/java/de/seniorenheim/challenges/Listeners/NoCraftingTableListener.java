@@ -1,6 +1,7 @@
 package de.seniorenheim.challenges.Listeners;
 
 import de.seniorenheim.challenges.Challenges.Challenge;
+import de.seniorenheim.challenges.Challenges.NoCraftingTableChallenge;
 import de.seniorenheim.challenges.Main;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -18,7 +19,7 @@ public class NoCraftingTableListener implements Listener {
     public void onOpenCraftingTable(InventoryOpenEvent e) {
         if (e.getInventory() instanceof CraftingInventory) {
             for (Challenge c : challenges) {
-                if (c.getParticipants().contains(e.getPlayer())) {
+                if (c.getParticipants().contains(e.getPlayer()) && c instanceof NoCraftingTableChallenge && c.isStarted() && !c.isPaused()) {
                     e.setCancelled(true);
                     // e.getPlayer().closeInventory();
                     break;

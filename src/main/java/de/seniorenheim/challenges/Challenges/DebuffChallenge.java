@@ -1,7 +1,7 @@
 package de.seniorenheim.challenges.Challenges;
 
 import de.seniorenheim.challenges.Utils.Difficulty.Difficulty;
-import de.seniorenheim.challenges.Utils.Timers.Timer;
+import de.seniorenheim.challenges.Utils.Timers.CountupTimer;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
@@ -9,13 +9,13 @@ import java.util.List;
 
 public class DebuffChallenge extends Challenge {
 
-    public DebuffChallenge(List<Player> participants, Timer timer) {
+    public DebuffChallenge(List<Player> participants) {
         super("DebuffChallenge",
                 List.of("§8│ §bSpiele Minecraft so",
                         "§8│ §bschnell es geht durch,",
                         "§8│ §bwährend du alle 5",
                         "§8│ §bMinuten einen zufälligen",
-                        "§8│ §bDebuff bekommst!"), Material.FERMENTED_SPIDER_EYE, Difficulty.HARD, participants, timer);
+                        "§8│ §bDebuff bekommst!"), Material.FERMENTED_SPIDER_EYE, Difficulty.HARD, participants, new CountupTimer());
     }
 
     @Override

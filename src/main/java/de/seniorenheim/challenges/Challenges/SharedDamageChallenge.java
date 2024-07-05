@@ -1,7 +1,7 @@
 package de.seniorenheim.challenges.Challenges;
 
 import de.seniorenheim.challenges.Utils.Difficulty.Difficulty;
-import de.seniorenheim.challenges.Utils.Timers.Timer;
+import de.seniorenheim.challenges.Utils.Timers.CountupTimer;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
@@ -9,14 +9,14 @@ import java.util.List;
 
 public class SharedDamageChallenge extends Challenge {
 
-    public SharedDamageChallenge(List<Player> participants, Timer timer) {
+    public SharedDamageChallenge(List<Player> participants) {
         super("SharedDamageChallenge",
                 List.of("§8│ §bSpiel Minecraft durch,",
                         "§8│ §balleine oder mit Freunden!",
                         "§8│ §bTeilt euch eine Healthbar,",
                         "§8│ §bganz nach dem Motto:",
                         "§8│ §b'Geteiltes Leid ist",
-                        "§8│ §bhalbes Leid!'"), Material.CHAIN, Difficulty.HARD, participants, timer);
+                        "§8│ §bhalbes Leid!'"), Material.CHAIN, Difficulty.HARD, participants, new CountupTimer());
     }
 
     @Override

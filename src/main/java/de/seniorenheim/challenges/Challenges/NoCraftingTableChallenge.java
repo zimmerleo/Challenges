@@ -1,7 +1,7 @@
 package de.seniorenheim.challenges.Challenges;
 
 import de.seniorenheim.challenges.Utils.Difficulty.Difficulty;
-import de.seniorenheim.challenges.Utils.Timers.Timer;
+import de.seniorenheim.challenges.Utils.Timers.CountupTimer;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
@@ -9,12 +9,12 @@ import java.util.List;
 
 public class NoCraftingTableChallenge extends Challenge {
 
-    public NoCraftingTableChallenge(List<Player> participants, Timer timer) {
+    public NoCraftingTableChallenge(List<Player> participants) {
         super("NoCraftingTableChallenge",
                 List.of("§8│ §bZiel ist es, Minecraft ohne",
                         "§8│ §beinen CraftingTable durch-",
                         "§8│ §bzuspielen! Bist du der",
-                        "§8│ §bHerausforderung gewachsen?"), Material.CRAFTING_TABLE, Difficulty.VERY_HARD, participants, timer);
+                        "§8│ §bHerausforderung gewachsen?"), Material.CRAFTING_TABLE, Difficulty.VERY_HARD, participants, new CountupTimer());
     }
 
     @Override

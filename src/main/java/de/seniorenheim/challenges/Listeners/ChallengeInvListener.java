@@ -1,5 +1,6 @@
 package de.seniorenheim.challenges.Listeners;
 
+import de.seniorenheim.challenges.Challenges.Challenge;
 import de.seniorenheim.challenges.Main;
 import de.seniorenheim.challenges.Utils.Inventories.ChallengeChoosingInventory;
 import de.seniorenheim.challenges.Utils.Inventories.ChallengeCreatingInventory;
@@ -9,6 +10,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
+import java.lang.reflect.Constructor;
+import java.util.List;
 import java.util.Objects;
 
 public class ChallengeInvListener implements Listener {
@@ -19,7 +22,7 @@ public class ChallengeInvListener implements Listener {
     public void onInvClick(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
 
-        if (e.getView().getTitle().contains("§6Challenges | ")) {
+        if (e.getView().getTitle().startsWith("§6Challenges | ")) {
             int index = Integer.parseInt(e.getView().getTitle().substring(14));
 
             //TODO
@@ -46,6 +49,32 @@ public class ChallengeInvListener implements Listener {
                         p.sendMessage(e.getCurrentItem().getItemMeta().getDisplayName().substring(10));
                         p.openInventory(new ChallengeCreatingInventory(e.getCurrentItem()).getInventory());
                     }
+                }
+            }
+        } else if (e.getView().getTitle().endsWith("Challenge")) {
+            e.setCancelled(true);
+
+            if (e.getCurrentItem() != null && Objects.requireNonNull(e.getCurrentItem().getItemMeta()).hasDisplayName()) {
+
+                switch (e.getCurrentItem().getItemMeta().getDisplayName()) {
+                    case "§a✓" -> {
+
+                        try {
+                            Class<?> clazz = Class.forName(e.getView().getTitle().substring(2));
+                            Constructor<?> constructor = clazz.getConstructor(List.class);
+
+                            Challenge challenge = (Challenge) constructor.newInstance(List.of(p));
+
+                            cm.activate(challenge);
+
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+                    case "§c✗" -> {
+                        p.openInventory(new ChallengeChoosingInventory(cm.getChallengeLists(), 1).getInventory());
+                    }
+                    default -> { }
                 }
             }
         }

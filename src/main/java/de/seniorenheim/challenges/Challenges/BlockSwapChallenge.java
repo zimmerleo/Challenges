@@ -2,7 +2,7 @@ package de.seniorenheim.challenges.Challenges;
 
 import de.seniorenheim.challenges.Main;
 import de.seniorenheim.challenges.Utils.Difficulty.Difficulty;
-import de.seniorenheim.challenges.Utils.Timers.Timer;
+import de.seniorenheim.challenges.Utils.Timers.CountupTimer;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -17,11 +17,11 @@ public class BlockSwapChallenge extends Challenge {
     private final Random random = new Random();
     private int task;
 
-    public BlockSwapChallenge(List<Player> participants, Timer timer) {
+    public BlockSwapChallenge(List<Player> participants) {
         super("BlockSwapChallenge",
                 List.of("§8│ §bAlle 5 Minuten werden",
                         "§8│ §bdie Blöcke um dich herum",
-                        "§8│ §bdurch andere ersetzt!"), Material.GRASS_BLOCK, Difficulty.EASY, participants, timer);
+                        "§8│ §bdurch andere ersetzt!"), Material.GRASS_BLOCK, Difficulty.EASY, participants, new CountupTimer());
     }
 
     @Override

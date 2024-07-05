@@ -1,6 +1,7 @@
 package de.seniorenheim.challenges.Listeners;
 
 import de.seniorenheim.challenges.Challenges.Challenge;
+import de.seniorenheim.challenges.Challenges.SharedDamageChallenge;
 import de.seniorenheim.challenges.Main;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -19,7 +20,7 @@ public class SharedDamageListener implements Listener {
             Player p = (Player) e.getEntity();
 
             for (Challenge c : challenges) {
-                if (c.getParticipants().contains(p)) {
+                if (c.getParticipants().contains(p) && c instanceof SharedDamageChallenge && c.isStarted() && !c.isPaused()) {
 
                     for (Player all : c.getParticipants()) {
                         if (!all.getName().equals(p.getName())) {

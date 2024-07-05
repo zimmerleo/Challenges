@@ -82,12 +82,12 @@ public class ChallengeManager implements ChallengeManagerInterface {
     }
 
     public void setup() {
-        create(new BlockSwapChallenge(null, null));
-        create(new DebuffChallenge(null, null));
-        create(new EndermanChallenge(null, null));
-        create(new InverseDamageChallenge(null, null));
-        create(new SharedDamageChallenge(null, null));
-        create(new NoCraftingTableChallenge(null, null));
+        create(new BlockSwapChallenge(null));
+        create(new DebuffChallenge(null));
+        create(new EndermanChallenge(null));
+        create(new InverseDamageChallenge(null));
+        create(new SharedDamageChallenge(null));
+        create(new NoCraftingTableChallenge(null));
     }
 
     public ArrayList<ArrayList<Challenge>> getChallengeLists() {
